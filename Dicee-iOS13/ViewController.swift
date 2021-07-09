@@ -27,7 +27,13 @@ class ViewController: UIViewController {
         //WHO          What    Value
         diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
     }
-
-
+//Add the button here use the control button and tap the button within the UI
+    //Then name the button, select it as UIButton, and select Touch Up Inside to click the button within the button box for it to work.
+    //This is the roll button on the UI
+    //This is called an IBAction not an outlet, its an action which happens when you click the thing
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        print("Button got tapped.")//Prints this statement into the console.
+    }
+    
 }
 
