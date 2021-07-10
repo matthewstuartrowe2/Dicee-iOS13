@@ -16,19 +16,16 @@ class ViewController: UIViewController {
     //Right Dice
     @IBOutlet weak var diceImageView2: UIImageView!
     
+    var leftDiceNumber = 0//the position in the dice array located below, default left dice's number in array (aka dice two)
+    
+    var rightDiceNumber = 5//the position in the dice array located below, default right dice's number in array (aka dice 6)
     
     override func viewDidLoad() {
         //This is what shows as soon as the app launches.
         super.viewDidLoad()
-        //Set the diceImageView1 to the image literal dice 6... use the Who.What = Where diceImageView1.image = image literal
-        //then image literal pops up and you can choose the actual image
-        //Our app will make the left dice a six dice and its alpha value to 0.5
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix")
-        //diceImageView1.alpha = 0.5
+        //Who.What = Where
+        //example diceImageView1.image = imageliteral
         
-        //Our app will make the right dice a two
-        //WHO          What    Value
-        diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
     }
     
     //IBAction area is for the UI to tell the code what to do
@@ -37,9 +34,11 @@ class ViewController: UIViewController {
     //This is the roll button on the UI
     //This is called an IBAction not an outlet, its an action which happens when you click the thing
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        print("Button got tapped.")//Prints this statement into the console.
-        diceImageView2.image = #imageLiteral(resourceName: "DiceFour")
-        diceImageView1.image = #imageLiteral(resourceName: "DiceFour")
+        //print("Button got tapped.")//Prints this statement into the console.
+        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")][leftDiceNumber]//the second [] is the position within the array, this is referenced by the leftDiceNumber variable above
+        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")][rightDiceNumber]//the second [] is the position within the array, this is referenced by the leftDiceNumber variable above
+        leftDiceNumber = leftDiceNumber + 1
+        rightDiceNumber = rightDiceNumber - 1
     }
     
 }
